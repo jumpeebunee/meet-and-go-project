@@ -6,6 +6,12 @@
   line-height: $lh;
 }
 
+@mixin app-flex($jc: space-between, $ai: center, $ds: flex) {
+  display: $ds;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
 $green-color: #75D7A1;
 $red-error: #D77575;
 $black-main: #1A1A1A;
@@ -20,7 +26,27 @@ $grey-main: rgba(217, 217, 217, 0.2);
   padding: 9.43vw 7.08vw;
 }
 
+.input {
+  width: 100%;
+  padding: 21px 20px;
+  font-size: 18px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.7);
+  background: rgba(217, 217, 217, 0.2);
+  border-radius: 10px;
+}
+
+.input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.error {
+  color: $red-error;
+  @include app-font(400, 3.30vw, 4.01vw);
+}
+
 // auth__banner
+
 .auth__banner {
   padding: 22.41vw 7.08vw 9.43vw 7.08vw;
   background: #75D7A1;
@@ -42,11 +68,32 @@ $grey-main: rgba(217, 217, 217, 0.2);
   display: none;
 }
 
+  // auth__form
+
+  .auth__form {
+    @include app-flex(flex-start, flex-start);
+    flex-direction: column;
+    margin-top: 9.43vw;
+  }
+
+  .auth__form-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
 @media (min-width: 424px) {
   .container {
     padding: 40px 30px;
   }  
+
+  .error {
+    margin-top: 10px;
+    @include app-font(400, 14px, 17px);
+  }
   
+  // auth__banner
+
   .auth__banner {
     padding: 95px 30px 40px 30px;
     border-radius: 25px;
@@ -60,6 +107,48 @@ $grey-main: rgba(217, 217, 217, 0.2);
       margin-top: 20px;
       @include app-font(500, 18px, 22px);
     }
+  }
+
+  // auth__form
+
+  .auth__form {    
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .auth__form-password-icon  {
+    width: 22px;
+    height: 15px;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    background-image: url(../assets/password.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    transform: translateY(-50%);
+  }
+
+  .auth__form-password-icon_active {
+    width: 22px;
+    height: 18.5px;
+    background-image: url(../assets/password-v.svg);
+    background-size: contain;
+  }
+
+  .auth__form-input_password {
+    position: relative;
+  }
+}
+
+@media (min-width: 567px) {
+  .input {
+    max-width: 368px;
+  }
+
+  .auth__form-input-wrapper {
+    @include app-flex(center, center);
+    flex-direction: column;
   }
 }
 
@@ -75,6 +164,8 @@ $grey-main: rgba(217, 217, 217, 0.2);
   .container, .container__wrapper {
     height: 100%;
   }
+
+  // auth__banner
   
   .auth__banner {
     display: flex;
@@ -104,6 +195,8 @@ $grey-main: rgba(217, 217, 217, 0.2);
     margin-right: auto;
     padding: 40px 20px;
   }
+
+  // auth__banner
 
   .auth__banner {
     max-width: 446px;
