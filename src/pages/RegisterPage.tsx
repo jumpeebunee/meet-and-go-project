@@ -1,7 +1,12 @@
+import AuthBanner from "../components/AuthBanner"
 
 const RegisterPage = () => {
   return (
-    <div>RegisterPage</div>
+    <div className="container">
+      <div className="container__wrapper">
+        <AuthBanner/>
+      </div>
+    </div>
   )
 }
 

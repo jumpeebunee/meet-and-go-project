@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap');
+
+@mixin app-font($fw, $fz, $lh) {
+  font-weight: $fw;
+  font-size: $fz;
+  line-height: $lh;
+}
+
+$green-color: #75D7A1;
+$red-error: #D77575;
+$black-main: #1A1A1A;
+$grey-main: rgba(217, 217, 217, 0.2);
+
+* {
+  font-family: Inter;
+  color: $black-main;
+}
+
+.container {
+  padding: 9.43vw 7.08vw;
+}
+
+// auth__banner
+.auth__banner {
+  padding: 22.41vw 7.08vw 9.43vw 7.08vw;
+  background: #75D7A1;
+  border-radius: 5.90vw;
+
+  h2 {
+    @include app-font(700, 8.49vw, 10.38vw);
+    color: #fff;
+  }
+
+  p {
+    margin-top: 2.36vw;
+    @include app-font(500, 4.25vw, 5.19vw);
+    color: #fff;
+  }
+}
+
+.auth__banner-image {
+  display: none;
+}
+
+@media (min-width: 424px) {
+  .container {
+    padding: 40px 30px;
+  }  
+  
+  .auth__banner {
+    padding: 95px 30px 40px 30px;
+    border-radius: 25px;
+  
+    h2 {
+      max-width: 307px;
+      @include app-font(700, 36px, 44px);
+    }
+  
+    p {
+      margin-top: 20px;
+      @include app-font(500, 18px, 22px);
+    }
+  }
+}
+
+@media (min-width: 967px) {
+  .container {
+    padding: 60px 50px;
+  }  
+
+  #root {
+    height: 100vh;
+  }
+
+  .container, .container__wrapper {
+    height: 100%;
+  }
+  
+  .auth__banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 385px;
+    height: 100%;
+    padding-top: 100px;
+  }
+
+  .auth__banner-image {
+    display: block;
+    width: 100%;
+    height: 50vh;
+    background-position: center center;
+    background-image: url(../assets/login-image.svg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 20px;
+  }
+
+  .auth__banner {
+    max-width: 446px;
+    padding-top: 100px;
+
+    h2 {
+      max-width: 366px;
+      font-size: 44px;
+      line-height: 53px;
+    }
+
+    p {
+      margin-top: 15px;
+      font-size: 19px;
+      line-height: 23px;
+    }
+  }
+}
