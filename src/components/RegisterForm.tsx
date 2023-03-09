@@ -2,6 +2,7 @@ import React, { useState, MouseEvent } from 'react'
 import { useForm } from 'react-hook-form'
 import inputConfig from '../helpers/inputConfig';
 import ErrorMessage from './ErrorMessage';
+import MainButton from './UI/MainButton/MainButton';
 
 const EMAIL_CONFIG = {
   required: 'Area is requred!',
@@ -65,7 +66,7 @@ const RegisterForm = () => {
           message={errors?.password?.message as string}
         />
       </div>
-      <button>test</button>
+      <MainButton text='Register'/>
     </form>
   )
 }
