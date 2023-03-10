@@ -69,6 +69,7 @@ const RegisterForm = () => {
         />
       </div>
       <MainButton text='Register'/>
+      <p className='auth__page-toggle'>Already register? <a><span>Sign in</span></a></p>
     </form>
   )
 }

@@ -26,6 +26,12 @@ $grey-main: rgba(217, 217, 217, 0.2);
   padding: 9.43vw 7.08vw;
 }
 
+.container__register {
+  @include app-flex();
+  flex-direction: column;
+  gap: 20px;
+}
+
 .input {
   width: 100%;
   padding: 4.95vw 4.72vw;
@@ -67,7 +73,7 @@ $grey-main: rgba(217, 217, 217, 0.2);
 // auth__form
 
 .auth__form {    
-  @include app-flex(flex-start, flex-start);
+  @include app-flex(flex-start, center);
   flex-direction: column;
   margin-top: 9.43vw;
   gap: 4.72vw;
@@ -105,6 +111,14 @@ $grey-main: rgba(217, 217, 217, 0.2);
 
 .auth__form-input_password {
   position: relative;
+}
+
+.auth__page-toggle {
+  @include app-font(400, 3.77vw, 4.48vw);
+
+  span {
+    color: #75D7A1;
+  }
 }
 
 @media (min-width: 424px) {
@@ -160,6 +174,10 @@ $grey-main: rgba(217, 217, 217, 0.2);
     height: 18.5px;
   }
 
+  .auth__page-toggle {
+    @include app-font(400, 16px, 19px);
+  }
+
 }
 
 @media (min-width: 567px) {
@@ -186,18 +204,22 @@ $grey-main: rgba(217, 217, 217, 0.2);
 
 @media (min-width: 967px) {
   .container {
-    padding: 60px 50px;
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 20px;
   }  
 
   #root {
     height: 100vh;
   }
 
-  .container, .container__wrapper {
+  .container, .container__wrapper-register {
     height: 100%;
   }
 
-  .container__register {
+  .container__wrapper-register {
+    width: 100%;
     @include app-flex(space-between, center);
     gap: 76px;
   }
@@ -206,39 +228,9 @@ $grey-main: rgba(217, 217, 217, 0.2);
   
   .auth__banner {
     gap: 20px;
-    max-width: 385px;
-    height: 100%;
-    padding-top: 100px;
-  }
-
-  .auth__form {
-    width: 100%;
-    margin: 0;
-    margin-right: auto;
-
-    h2 {
-      margin-bottom: 5px;
-      max-width: 210px;
-      display: block;
-      @include app-font(700, 32px, 39px);
-      color: $black-main;
-    }
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1080px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 40px 20px;
-  }
-
-  // auth__banner
-
-  .auth__banner {
     max-width: 446px;
     padding-top: 100px;
+    height: 100%;
 
     h2 {
       max-width: 366px;
@@ -252,4 +244,47 @@ $grey-main: rgba(217, 217, 217, 0.2);
       line-height: 23px;
     }
   }
+
+  .auth__form {
+    width: 100%;
+    margin: 0;
+    margin-right: auto;
+
+    h2 {
+      margin-bottom: 5px;
+      max-width: 210px;
+      display: block;
+      align-self: flex-start;
+      @include app-font(700, 32px, 39px);
+      color: $black-main;
+    }
+  }
 }
+
+// @media (min-width: 967px) {
+//   .container {
+//     max-width: 1080px;
+//     margin-left: auto;
+//     margin-right: auto;
+//     padding: 40px 20px;
+//   }
+
+//   // auth__banner
+
+//   .auth__banner {
+//     max-width: 446px;
+//     padding-top: 100px;
+
+//     h2 {
+//       max-width: 366px;
+//       font-size: 44px;
+//       line-height: 53px;
+//     }
+
+//     p {
+//       margin-top: 15px;
+//       font-size: 19px;
+//       line-height: 23px;
+//     }
+//   }
+// }
