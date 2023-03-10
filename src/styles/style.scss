@@ -28,12 +28,12 @@ $grey-main: rgba(217, 217, 217, 0.2);
 
 .input {
   width: 100%;
-  padding: 21px 20px;
-  font-size: 18px;
-  line-height: 22px;
+  padding: 4.95vw 4.72vw;
+  font-size: 4.25vw;
+  line-height: 5.19vw;
   color: rgba(0, 0, 0, 0.7);
   background: rgba(217, 217, 217, 0.2);
-  border-radius: 10px;
+  border-radius: 2.36vw;
 }
 
 .input::placeholder {
@@ -64,27 +64,59 @@ $grey-main: rgba(217, 217, 217, 0.2);
   }
 }
 
-.auth__banner-image {
-  display: none;
+// auth__form
+
+.auth__form {    
+  @include app-flex(flex-start, flex-start);
+  flex-direction: column;
+  margin-top: 9.43vw;
+  gap: 4.72vw;
+
+  h2 {
+    display: none;
+  }
 }
 
-  // auth__form
+.auth__form-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
-  .auth__form {
-    @include app-flex(flex-start, flex-start);
-    flex-direction: column;
-    margin-top: 9.43vw;
-  }
+.auth__form-password-icon  {
+  width: 5.19vw;
+  height: 3.54vw;
+  position: absolute;
+  top: 50%;
+  right: 4.72vw;
+  background-image: url(../assets/password.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  transform: translateY(-50%);
+}
 
-  .auth__form-input-wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
+.auth__form-password-icon_active {
+  width: 5.19vw;
+  height: 18.5px;
+  background-image: url(../assets/password-v.svg);
+  background-size: contain;
+}
+
+.auth__form-input_password {
+  position: relative;
+}
 
 @media (min-width: 424px) {
   .container {
     padding: 40px 30px;
+  }
+  
+  .input {
+    padding: 21px 20px;
+    font-size: 18px;
+    line-height: 22px;
+    border-radius: 10px;
   }  
 
   .error {
@@ -119,26 +151,15 @@ $grey-main: rgba(217, 217, 217, 0.2);
   .auth__form-password-icon  {
     width: 22px;
     height: 15px;
-    position: absolute;
     top: 50%;
     right: 20px;
-    background-image: url(../assets/password.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: transparent;
-    transform: translateY(-50%);
   }
 
   .auth__form-password-icon_active {
     width: 22px;
     height: 18.5px;
-    background-image: url(../assets/password-v.svg);
-    background-size: contain;
   }
 
-  .auth__form-input_password {
-    position: relative;
-  }
 }
 
 @media (min-width: 567px) {
@@ -147,8 +168,19 @@ $grey-main: rgba(217, 217, 217, 0.2);
   }
 
   .auth__form-input-wrapper {
-    @include app-flex(center, center);
+    @include app-flex(center, flex-start);
     flex-direction: column;
+  }
+
+  .auth__form {
+    max-width: 368px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .auth__form-input_password {
+    width: 100%;
+    position: relative;
   }
 }
 
@@ -165,26 +197,32 @@ $grey-main: rgba(217, 217, 217, 0.2);
     height: 100%;
   }
 
+  .container__register {
+    @include app-flex(space-between, center);
+    gap: 76px;
+  }
+
   // auth__banner
   
   .auth__banner {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     gap: 20px;
     max-width: 385px;
     height: 100%;
     padding-top: 100px;
   }
 
-  .auth__banner-image {
-    display: block;
+  .auth__form {
     width: 100%;
-    height: 50vh;
-    background-position: center center;
-    background-image: url(../assets/login-image.svg);
-    background-repeat: no-repeat;
-    border-radius: 10px;
+    margin: 0;
+    margin-right: auto;
+
+    h2 {
+      margin-bottom: 5px;
+      max-width: 210px;
+      display: block;
+      @include app-font(700, 32px, 39px);
+      color: $black-main;
+    }
   }
 }
 

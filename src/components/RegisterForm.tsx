@@ -29,6 +29,7 @@ const RegisterForm = () => {
 
   return (
     <form className='auth__form' onSubmit={handleSubmit(onSubmit)}>
+      <h2>Sign up to Meet and Go</h2>
       <div className='auth__form-input-wrapper'>
         <input
           className='input'
@@ -49,10 +50,11 @@ const RegisterForm = () => {
           message={errors?.email?.message as string}
         />
       </div>
-      <div className='auth__form-input-wrapper'>
+      <div style={{marginBottom: 20}} className='auth__form-input-wrapper'>
         <div className='auth__form-input_password'>
           <input
             className='input'
+            autoComplete={isVisible ? 'false' : 'true'}
             {...register('password', inputConfig())}
             type={isVisible ? 'text' : 'password'}
             placeholder="Password"

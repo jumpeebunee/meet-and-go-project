@@ -1,10 +1,19 @@
 .mainButton {
   width: 100%;
-  padding: 20px 40px;
+  padding: 4.72vw 9.43vw;
   background: #1A1A1A;
-  border-radius: 40px;
+  border-radius: 9.43vw;
   font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 4.25vw;
+  line-height: 5.19vw;
   color: #FFFFFF;
+}
+
+@media (min-width: 424px) {
+  .mainButton {
+    padding: 20px 40px;
+    border-radius: 40px;
+    font-size: 18px;
+    line-height: 22px;
+  }
 }
