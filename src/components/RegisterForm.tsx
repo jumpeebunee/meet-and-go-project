@@ -1,6 +1,7 @@
-import React, { useState, MouseEvent } from 'react'
+import React, { useState, MouseEvent, FC } from 'react'
 import { useForm } from 'react-hook-form'
 import inputConfig from '../helpers/inputConfig';
+import { IRegister } from '../types/type';
 import ErrorMessage from './ErrorMessage';
 import MainButton from './UI/MainButton/MainButton';
 
@@ -12,15 +13,16 @@ const EMAIL_CONFIG = {
   },
 }
 
-const RegisterForm = () => {
+interface RegisterFormProps {
+  serverError: string;
+  submitForm: (data: IRegister) => void;
+}
 
-  const {register, formState: {errors}, handleSubmit} = useForm({});
+const RegisterForm:FC<RegisterFormProps> = ({serverError, submitForm}) => {
+
+  const {register, formState: {errors}, handleSubmit} = useForm<IRegister>({});
 
   const [isVisible, setIsVisible] = useState(false);
-
-  const onSubmit = (data: any) => {
-    console.log(data);
-  }
 
   const handleVisible = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -28,7 +30,7 @@ const RegisterForm = () => {
   }
 
   return (
-    <form className='auth__form' onSubmit={handleSubmit(onSubmit)}>
+    <form className='auth__form' onSubmit={handleSubmit(submitForm)}>
       <h2>Sign up to Meet and Go</h2>
       <div className='auth__form-input-wrapper'>
         <input
@@ -66,6 +68,9 @@ const RegisterForm = () => {
         </div>
         <ErrorMessage
           message={errors?.password?.message as string}
+        />
+        <ErrorMessage
+          message={serverError}
         />
       </div>
       <MainButton text='Register'/>
