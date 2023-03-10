@@ -35,4 +35,4 @@ const UserSlice = createSlice({
 
 export default UserSlice.reducer;
 export const { addUser } = UserSlice.actions;
-export const currentUser = ((state: RootState) => state.user.user);
+export const user = ((state: RootState) => state.user.user);
