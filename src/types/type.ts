@@ -5,12 +5,12 @@ export type IRegister = {
 }
 
 export type IUser = {
-  uid: string,
-  username: string,
   email: string,
+  interests: string[],
   phone: string,
   town: string,
-  interests: string[],
+  uid: string,
+  username: string,
   reputation: number,
   totalMeets: number,
   currentCreated: number
