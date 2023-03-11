@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { collection, doc, getDocs, onSnapshot } from "firebase/firestore";
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import AppNavigation from "./components/AppNavigation"
 import { auth, db } from "./firebase";
 import { useDispatch } from "react-redux";

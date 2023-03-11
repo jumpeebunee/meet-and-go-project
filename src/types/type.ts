@@ -4,6 +4,11 @@ export type IRegister = {
   password: string;
 }
 
+export type ILogin = {
+  email: string;
+  password: string;
+}
+
 export type IUser = {
   email: string,
   interests: string[],

@@ -1,21 +1,22 @@
-import { useState, MouseEvent, FC } from 'react'
+import { FC, useState, MouseEvent } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom';
-import { EMAIL_CONFIG, PASSWORD_CONFIG, USERNAME_CONFIG } from '../dataConfig/inputConfigs';
-import { IRegister } from '../types/type';
-import ErrorMessage from './ErrorMessage';
-import MainButton from './UI/MainButton/MainButton';
+import { Link } from 'react-router-dom'
+import { EMAIL_CONFIG, PASSWORD_CONFIG } from '../dataConfig/inputConfigs'
+import { ILogin } from '../types/type'
+import ErrorMessage from './ErrorMessage'
+import MainButton from './UI/MainButton/MainButton'
 
-interface RegisterFormProps {
+interface LoginFormProps {
   serverError: string;
-  submitForm: (data: IRegister) => void;
+  submitForm: (data: ILogin) => void;
 }
 
-const RegisterForm:FC<RegisterFormProps> = ({serverError, submitForm}) => {
+const LoginForm:FC<LoginFormProps> = ({serverError, submitForm}) => {
 
-  const {register, formState: {errors}, handleSubmit} = useForm<IRegister>({});
+  const {register, formState: {errors}, handleSubmit} = useForm<ILogin>({});
 
   const [isVisible, setIsVisible] = useState(false);
+
 
   const handleVisible = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -24,17 +25,7 @@ const RegisterForm:FC<RegisterFormProps> = ({serverError, submitForm}) => {
 
   return (
     <form className='auth__form' onSubmit={handleSubmit(submitForm)}>
-      <h2>Sign up to Meet and Go</h2>
-      <div className='auth__form-input-wrapper'>
-        <input
-          className='input'
-          {...register('username', USERNAME_CONFIG)}
-          placeholder="Username"
-        />
-        <ErrorMessage
-          message={errors?.username?.message as string}
-        />
-      </div>
+      <h2>Sign in to Meet and Go</h2>
       <div className='auth__form-input-wrapper'>
         <input
           className='input'
@@ -66,10 +57,10 @@ const RegisterForm:FC<RegisterFormProps> = ({serverError, submitForm}) => {
           message={serverError}
         />
       </div>
-      <MainButton text='Register'/>
-      <p className='auth__page-toggle'>Already register? <Link to="/login"><span>Sign in</span></Link></p>
+      <MainButton text='Login'/>
+      <p className='auth__page-toggle'>Not a member? <Link to="/register"><span>Register now</span></Link></p>
     </form>
   )
 }
 
-export default RegisterForm
+export default LoginForm
