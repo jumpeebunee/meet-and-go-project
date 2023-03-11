@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IUser } from "../../types/type";
 import { RootState } from "../store";
 
+
 interface UserSliceProps {
   user: IUser,
 }
