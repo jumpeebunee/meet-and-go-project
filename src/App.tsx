@@ -27,7 +27,7 @@ const App = () => {
         }
         navigate('/');
       } else {
-        navigate('/login');
+        navigate('/register');
       }
     })
   }, [])
