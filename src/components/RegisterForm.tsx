@@ -13,6 +13,22 @@ const EMAIL_CONFIG = {
   },
 }
 
+const USERNAME_CONFIG = {
+  required: 'Area is requred!',
+  pattern: {
+    value: /^[a-zA-Z0-9_.\u0400-\u04FF]+$/i,
+    message: 'Invalid username',
+  },
+}
+
+const PASSWORD_CONFIG = {
+  required: 'Area is requred!',
+  pattern: {
+    value: /^[a-zA-Z0-9_.\u0400-\u04FF]+$/i,
+    message: 'Invalid password',
+  },
+}
+
 interface RegisterFormProps {
   serverError: string;
   submitForm: (data: IRegister) => void;
@@ -35,7 +51,7 @@ const RegisterForm:FC<RegisterFormProps> = ({serverError, submitForm}) => {
       <div className='auth__form-input-wrapper'>
         <input
           className='input'
-          {...register('username', inputConfig())}
+          {...register('username', USERNAME_CONFIG)}
           placeholder="Username"
         />
         <ErrorMessage
@@ -57,7 +73,7 @@ const RegisterForm:FC<RegisterFormProps> = ({serverError, submitForm}) => {
           <input
             className='input'
             autoComplete={isVisible ? 'false' : 'true'}
-            {...register('password', inputConfig())}
+            {...register('password', PASSWORD_CONFIG)}
             type={isVisible ? 'text' : 'password'}
             placeholder="Password"
           />

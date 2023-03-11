@@ -38,7 +38,6 @@ const RegisterPage = () => {
         uid: response.user.uid
       }
       dispatch(addUser(userInfo));
-      console.log(response.user.uid)
       await setDoc(doc(db, 'users', response.user.uid), {...userInfo});
       navigate('/');
     } catch (error: any) {
