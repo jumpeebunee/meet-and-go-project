@@ -28,4 +28,12 @@ export const PASSWORD_CONFIG = {
     value: /^[a-zA-Z0-9_.\u0400-\u04FF]+$/i,
     message: 'Invalid password',
   },
+  maxLength: {
+    value: 20,
+    message: 'Maximum of 20 characters'
+  },
+  minLength: {
+    value: 8,
+    message: 'Minimum of 8 characters'
+  }
 }
