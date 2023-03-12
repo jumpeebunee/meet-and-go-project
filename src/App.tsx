@@ -1,19 +1,23 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { collection, doc, getDocs, onSnapshot } from "firebase/firestore";
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import AppNavigation from "./components/AppNavigation"
 import { auth, db } from "./firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "./app/features/UserSlice";
 import { IUser } from "./types/type";
 import { useNavigate } from "react-router-dom";
+import AppLoading from "./components/AppLoading";
 
 const App = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
+    setIsLoading(true);
     onAuthStateChanged(auth, async(user) => {
       if (user) {
         if (user.email && user.uid && user.displayName) {
@@ -29,6 +33,7 @@ const App = () => {
       } else {
         navigate('/register');
       }
+      setIsLoading(false);
     })
   }, [])
 
@@ -40,7 +45,10 @@ const App = () => {
 
   return (
     <>
-      <AppNavigation/>
+      {isLoading
+        ? <AppLoading/>
+        : <AppNavigation/>
+      }
     </>
   )
 }

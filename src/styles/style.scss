@@ -121,6 +121,23 @@ $grey-main: rgba(217, 217, 217, 0.2);
   }
 }
 
+  //* Loading-app 
+
+  .app-loading {
+    @include app-flex(center, center);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: $green-color;
+
+    h2 {
+      @include app-font(700, 9.91vw, 12.03vw);
+      color: #fff;
+    }
+  }
+
 @media (min-width: 424px) {
   .container {
     padding: 40px 30px;
@@ -176,6 +193,14 @@ $grey-main: rgba(217, 217, 217, 0.2);
 
   .auth__page-toggle {
     @include app-font(400, 16px, 19px);
+  }
+
+  //* Loading-app 
+
+  .app-loading {
+    h2 {
+      @include app-font(700, 42px, 51px);
+    }
   }
 
 }
@@ -260,31 +285,3 @@ $grey-main: rgba(217, 217, 217, 0.2);
     }
   }
 }
-
-// @media (min-width: 967px) {
-//   .container {
-//     max-width: 1080px;
-//     margin-left: auto;
-//     margin-right: auto;
-//     padding: 40px 20px;
-//   }
-
-//   // auth__banner
-
-//   .auth__banner {
-//     max-width: 446px;
-//     padding-top: 100px;
-
-//     h2 {
-//       max-width: 366px;
-//       font-size: 44px;
-//       line-height: 53px;
-//     }
-
-//     p {
-//       margin-top: 15px;
-//       font-size: 19px;
-//       line-height: 23px;
-//     }
-//   }
-// }
