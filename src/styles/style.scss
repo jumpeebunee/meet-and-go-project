@@ -203,6 +203,12 @@ $grey-main: rgba(217, 217, 217, 0.2);
     }
   }
 
+  //* app-map 
+
+  .app-map {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
 @media (min-width: 567px) {

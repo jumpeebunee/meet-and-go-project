@@ -1,8 +1,11 @@
+import AppMap from "../components/AppMap"
 
 
 const HomePage = () => {
   return (
-    <div>Страница в разработке</div>
+    <div className="app-container">
+      <AppMap/>
+    </div>
   )
 }
 
