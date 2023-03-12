@@ -29,7 +29,7 @@ const RegisterForm:FC<RegisterFormProps> = ({serverError, submitForm}) => {
         <input
           className='input'
           {...register('username', USERNAME_CONFIG)}
-          placeholder="Username"
+          placeholder="Full name"
         />
         <ErrorMessage
           message={errors?.username?.message as string}

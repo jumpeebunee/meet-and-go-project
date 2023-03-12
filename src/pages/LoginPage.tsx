@@ -1,14 +1,21 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react"
 import AuthBanner from "../components/AuthBanner"
 import LoginForm from "../components/LoginForm"
+import { auth } from "../firebase";
 import { ILogin } from "../types/type";
 
 const LoginPage = () => {
 
   const [serverError, setServerError] = useState('');
 
-  const handleSubmit = (data: ILogin) => {
-    console.log(data);
+  const handleSubmit = async(data: ILogin) => {
+    setServerError('');
+    try {
+      const res = await signInWithEmailAndPassword(auth, data.email, data.password);
+      console.log(res)
+    } catch (error) {
+    }
   }
 
   return (

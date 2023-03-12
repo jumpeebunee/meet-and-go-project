@@ -29,12 +29,12 @@ const RegisterPage = () => {
   const handleSubmit = async(data: IRegister) => {
     setServerError('');
     try {
-      const response = await createUserWithEmailAndPassword(auth, data.email, data.password);
-      await updateProfile(response.user, { displayName: data.username });
+      const response = await createUserWithEmailAndPassword(auth, data.email.trim(), data.password.trim());
+      await updateProfile(response.user, { displayName: data.username.trim() });
       const userInfo = {
         ...baseUserInfo,
-        username: data.username,
-        email: data.email,
+        username: data.username.trim(),
+        email: data.email.trim(),
         uid: response.user.uid
       }
       dispatch(addUser(userInfo));

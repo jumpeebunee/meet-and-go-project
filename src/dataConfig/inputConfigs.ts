@@ -9,9 +9,17 @@ export const EMAIL_CONFIG = {
 export const USERNAME_CONFIG = {
   required: 'Area is requred!',
   pattern: {
-    value: /^[a-zA-Z0-9_.\u0400-\u04FF]+$/i,
+    value: /^[a-zа-яё ,.'-]+$/i,
     message: 'Invalid username',
   },
+  maxLength: {
+    value: 25,
+    message: 'Maximum of 25 characters'
+  },
+  minLength: {
+    value: 3,
+    message: 'Minimum of 3 characters'
+  }
 }
 
 export const PASSWORD_CONFIG = {
