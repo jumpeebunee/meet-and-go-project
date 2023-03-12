@@ -143,6 +143,40 @@ $grey-main: rgba(217, 217, 217, 0.2);
     }
   }
 
+  //* app-map 
+
+  .app-map {
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+  }
+
+  //* search-btn
+
+  .search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 19.10vw;
+    height: 19.10vw;
+    background-color: $black-main;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 7.08vw;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    
+    span {
+      display: block;
+      width: 7.78vw;
+      height: 7.78vw;
+      background-image: url(../assets/search.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
 @media (min-width: 424px) {
   .container {
     padding: 40px 30px;
@@ -208,11 +242,17 @@ $grey-main: rgba(217, 217, 217, 0.2);
     }
   }
 
-  //* app-map 
+  //* search-btn
 
-  .app-map {
-    width: 100vw;
-    height: 100vh;
+  .search-btn {
+    width: 81px;
+    height: 81px;
+    bottom: 30px;
+    
+    span {
+      width: 33px;
+      height: 33px;
+    }
   }
 }
 
