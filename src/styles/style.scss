@@ -176,6 +176,12 @@ $grey-main: rgba(217, 217, 217, 0.2);
       background-repeat: no-repeat;
     }
   }
+  
+  .search-btn_active {
+    span {
+      background-image: url(../assets/closeSearch.svg);
+    }
+  }
 
 @media (min-width: 424px) {
   .container {
